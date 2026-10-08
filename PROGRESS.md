@@ -6,8 +6,11 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 ## Current position
 
 - **Next lesson:** [M1.01 — Repository bootstrap](lessons/m1-walking-skeleton/01-repo-bootstrap.md)
-- **Next step:** Decisions made (see below). Install uv + just, then M1.01 task 1 (create the repo).
-  Format review happens while working through M1.
+- **Next step:** Commit task 4 (`pyproject.toml` Ruff + mypy config is **uncommitted** in books-api;
+  suggested msg `chore: configure ruff and mypy strict`), then **task 5: pre-commit hooks**. A full task-5
+  walkthrough was given at hint level (local `uv run mypy` hook with `pass_filenames: false`, autoupdate,
+  `pre-commit install` belongs in `just install`). Remaining after that: tasks 6–9 + the toolchain ADR.
+  Tasks 1–4 done. Format review continues while working through M1.
 
 ## Lesson status
 
@@ -16,7 +19,7 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 | Lesson | Status | Evidence (PR / commit / tag) |
 |---|---|---|
 | M0 design: wireframes + Figma | ⬜ | |
-| M1.01 Repository bootstrap | ⬜ | |
+| M1.01 Repository bootstrap | 🟨 | tasks 1–4; `16633e2` (dev tooling), task 4 uncommitted |
 | M1.02 TDD your first endpoint | ⬜ | |
 | M1.03 Configuration and DI | ⬜ | |
 | M1.04 CI from day one | ⬜ | |
@@ -43,6 +46,8 @@ Course-level decisions (also in the ADRs):
 
 Your implementation decisions (tooling, structure, …) go here with a link to the ADR in your repo:
 
+- 2026-10-08 — `books-api` mypy `files = ["src"]` for now; **add `"tests"` in task 9** once a test file exists
+  (mypy errors on a missing or empty dir).
 - 2026-10-08 — `books-api` toolchain (M1.01): **uv** · **src layout** (`src/books_api/`) · **mypy strict** ·
   **Python 3.14** (3.15 just released; wait for wheels, bump later as a practice PR) · **Ruff** defaults +
   `B, UP, I, SIM, N, S` (ignore `S101` assert in `tests/`) · **just** runner · **Conventional Commits** ·
@@ -81,3 +86,9 @@ Small edits owed to later lessons, based on decisions made while working:
   skeleton first, `bookmeta` library, AWS out of scope. Set up the course memory system (CLAUDE.md,
   PROGRESS.md, skills, lesson-reviewer agent). Wrote Module 1 in the new format.
   **Next:** student reviews M1 → feedback → start M1.01.
+- **2026-10-08 (cont.)** — Set up personal git identity + SSH key via `includeIf`; pushed the workspace to
+  github.com/hagayparavy/books-tracker. Agreed: student owns git in code repos, Claude owns git for course docs;
+  git conventions as in-lesson hints; guidance ladder (hint first, snippet on request). Made the 8 M1.01
+  toolchain decisions together. Student did tasks 1–4 (repo, uv init, gitignore, dev deps, Ruff/mypy config;
+  Claude fixed `per-file-ignores` as a one-time exception).
+  **Next:** commit task 4 → task 5 (pre-commit).
