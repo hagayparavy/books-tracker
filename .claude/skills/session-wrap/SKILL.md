@@ -21,4 +21,5 @@ Save everything the next session needs into `PROGRESS.md`. Chat history won't su
    - Append a **Session log** entry: date (absolute, YYYY-MM-DD), two or three lines of what happened, next step.
    Keep entries terse. Remove open questions that were resolved.
 4. Show the student a short summary of what you recorded.
-5. Suggest a commit message for the course workspace if course docs changed. Commit only if the student asks.
+5. If course docs changed, commit them to the course workspace repo (Conventional Commit message) and push.
+   Claude owns git for this workspace. Never touch git in the code repos; the student owns those.

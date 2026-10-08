@@ -21,6 +21,7 @@ The original brief is in [`Books Tracking Project.md`](Books%20Tracking%20Projec
 3. **The student does all git operations in the code repositories**: init, add, commit, branch, push,
    PRs, merges, tags, and GitHub repo/settings changes. Claude may run read-only git commands there
    (`status`, `log`, `diff`, `show`) to review work, and may suggest a commit message or PR title when asked.
+   The opposite holds for **this course-docs workspace**: Claude commits and pushes doc changes itself.
 4. **Repository independence:** no repo may depend on another's local path. Integration only via HTTP,
    published packages (PyPI/npm), or published artifacts (OpenAPI spec on a GitHub Release).
 5. Keep the course lean. Scope decisions below are settled — don't reopen them unless the student does.
