@@ -67,6 +67,9 @@ Small edits owed to later lessons, based on decisions made while working:
   page defaults to HTTPS, which routes through `gh` (work account) and fails with 403.
 - M1.01 (and M3.01): `git init` before `uv init` means uv **also skips creating `.gitignore`**. The lesson
   should say to write `.gitignore` yourself, or use `uv init --vcs git` semantics knowingly.
+- All lessons: weave **git convention hints** into tasks (branch naming, PR-title commit types,
+  `--force-with-lease`, never rewrite shared history, tags are permanent). Student wants hints in context,
+  **not** a separate git reference doc.
 
 ## Session log
 
