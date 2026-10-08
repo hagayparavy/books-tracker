@@ -63,7 +63,10 @@ Your implementation decisions (tooling, structure, …) go here with a link to t
 
 Small edits owed to later lessons, based on decisions made while working:
 
-- _none yet_
+- M1.01 (and repo-creation steps in M3/M4/M5): say **use the SSH remote URL** up front. GitHub's quick-setup
+  page defaults to HTTPS, which routes through `gh` (work account) and fails with 403.
+- M1.01 (and M3.01): `git init` before `uv init` means uv **also skips creating `.gitignore`**. The lesson
+  should say to write `.gitignore` yourself, or use `uv init --vcs git` semantics knowingly.
 
 ## Session log
 
