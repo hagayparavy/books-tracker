@@ -6,7 +6,8 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 ## Current position
 
 - **Next lesson:** [M1.01 — Repository bootstrap](lessons/m1-walking-skeleton/01-repo-bootstrap.md)
-- **Next step:** Review the Module 1 format and depth (lessons 01–07), give feedback, then start M1.01 task 1.
+- **Next step:** Decisions made (see below). Install uv + just, then M1.01 task 1 (create the repo).
+  Format review happens while working through M1.
 
 ## Lesson status
 
@@ -41,7 +42,10 @@ Course-level decisions (also in the ADRs):
 
 Your implementation decisions (tooling, structure, …) go here with a link to the ADR in your repo:
 
-- _none yet_
+- 2026-10-08 — `books-api` toolchain (M1.01): **uv** · **src layout** (`src/books_api/`) · **mypy strict** ·
+  **Python 3.14** (3.15 just released; wait for wheels, bump later as a practice PR) · **Ruff** defaults +
+  `B, UP, I, SIM, N, S` (ignore `S101` assert in `tests/`) · **just** runner · **Conventional Commits** ·
+  **MIT**. → to be recorded by the student as `books-api/docs/adr/0001-python-toolchain.md`
 
 ## Open questions
 
