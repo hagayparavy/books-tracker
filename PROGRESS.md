@@ -56,6 +56,10 @@ Your implementation decisions (tooling, structure, …) go here with a link to t
 - [ ] Student reviews the M1 format and depth → adjust the template and M1
 - [ ] Rewrite M2–M6 in the approved format (one pass, possibly in parallel agents), moving legacy drafts into module folders
 - [x] Delete absorbed legacy files after the baseline commit
+- [ ] **Format feedback (M1.01 task 4):** student needed more guidance. Lessons say "configure X" without the
+      config *shape*, which left them guessing syntax. Candidate fix: per-task shape hints (key names, data types,
+      exact doc section), or let Claude write tool config (student declined to choose yet). One-time exception
+      granted: Claude fixed `[tool.ruff.lint.per-file-ignores]` in books-api. Decide at end-of-M1 review.
 - [ ] Review M1 format while working through it (student hasn't read it all yet). At the end of M1, review
       the session transcripts together to judge how well the lessons taught, then adjust before rewriting M2–M6
 
