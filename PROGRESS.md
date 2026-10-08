@@ -35,6 +35,8 @@ Course-level decisions (also in the ADRs):
 - 2026-10-08 — Course restructured into modules M0–M6 with a walking skeleton first; CI and releases from M1.
 - 2026-10-08 — Rollout: write M1 fully → student reviews format → apply to M2–M6 in one pass, with small touch-ups later.
 - 2026-10-08 — Code repos live as subfolders of this workspace, gitignored here, each its own git repo.
+- 2026-10-08 — Git: personal identity (`hagayparavy`, noreply email) and personal SSH key apply automatically
+  to this folder and every nested repo via `includeIf` in `~/.gitconfig`. Use **SSH remote URLs** for course repos.
 
 Your implementation decisions (tooling, structure, …) go here with a link to the ADR in your repo:
 
@@ -42,15 +44,13 @@ Your implementation decisions (tooling, structure, …) go here with a link to t
 
 ## Open questions
 
-- Which git identity to use for this personal public project? Global config is currently the work account.
-  Needed before the workspace's baseline commit and before `books-api` M1.01.
-- After the baseline commit: delete the legacy files absorbed into M1 (listed at the bottom of LESSONS-ORDER).
+- _none_
 
 ## Course authoring backlog
 
 - [ ] Student reviews the M1 format and depth → adjust the template and M1
 - [ ] Rewrite M2–M6 in the approved format (one pass, possibly in parallel agents), moving legacy drafts into module folders
-- [ ] Delete absorbed legacy files after the baseline commit
+- [x] Delete absorbed legacy files after the baseline commit
 - [ ] Review M1 format while working through it (student hasn't read it all yet). At the end of M1, review
       the session transcripts together to judge how well the lessons taught, then adjust before rewriting M2–M6
 

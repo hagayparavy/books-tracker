@@ -89,12 +89,11 @@ Design work (0.7–0.8) can run in parallel with Module 1 or 2; it must be done 
 
 ---
 
-## Legacy files fully absorbed into Module 1
+## Removed legacy files
 
-These are superseded and will be deleted after the workspace's baseline commit:
-[backend/01-project-skeleton](backend/01-project-skeleton.md) → 1.01–1.03 ·
-[devops/secrets-and-config](devops/secrets-and-config.md) → 1.03, 1.06 ·
-[shared/optional-handwritten-sdk](shared/optional-handwritten-sdk.md) → replaced by M3 (`bookmeta`).
+Absorbed into Module 1 and deleted (recoverable from git history, commit `3a384db`):
+`backend/01-project-skeleton.md` → 1.01–1.03 · `devops/secrets-and-config.md` → 1.03, 1.06 ·
+`shared/optional-handwritten-sdk.md` → replaced by M3 (`bookmeta`).
 
 ## Notes
 
