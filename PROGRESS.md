@@ -36,6 +36,7 @@ Course-level decisions (also in the ADRs):
 - 2026-10-08 — Course restructured into modules M0–M6 with a walking skeleton first; CI and releases from M1.
 - 2026-10-08 — Rollout: write M1 fully → student reviews format → apply to M2–M6 in one pass, with small touch-ups later.
 - 2026-10-08 — Code repos live as subfolders of this workspace, gitignored here, each its own git repo.
+- 2026-10-08 — Guidance ladder: hint first; on request, show the concrete solution in chat. → CLAUDE.md rule 1
 - 2026-10-08 — Git ownership: student does all git ops in code repos; Claude handles git (commit + push) for this course-docs workspace.
 - 2026-10-08 — Git: personal identity (`hagayparavy`, noreply email) and personal SSH key apply automatically
   to this folder and every nested repo via `includeIf` in `~/.gitconfig`. Use **SSH remote URLs** for course repos.
@@ -56,10 +57,9 @@ Your implementation decisions (tooling, structure, …) go here with a link to t
 - [ ] Student reviews the M1 format and depth → adjust the template and M1
 - [ ] Rewrite M2–M6 in the approved format (one pass, possibly in parallel agents), moving legacy drafts into module folders
 - [x] Delete absorbed legacy files after the baseline commit
-- [ ] **Format feedback (M1.01 task 4):** student needed more guidance. Lessons say "configure X" without the
-      config *shape*, which left them guessing syntax. Candidate fix: per-task shape hints (key names, data types,
-      exact doc section), or let Claude write tool config (student declined to choose yet). One-time exception
-      granted: Claude fixed `[tool.ruff.lint.per-file-ignores]` in books-api. Decide at end-of-M1 review.
+- [x] **Format feedback (M1.01 task 4):** student needed more guidance. Resolved as a **guidance ladder**:
+      hint first; if the student asks, show the concrete solution in chat (recorded in CLAUDE.md rule 1).
+      For the M2–M6 rewrite: add per-task hints (key names, config shape, doc section) to lessons.
 - [ ] Review M1 format while working through it (student hasn't read it all yet). At the end of M1, review
       the session transcripts together to judge how well the lessons taught, then adjust before rewriting M2–M6
 

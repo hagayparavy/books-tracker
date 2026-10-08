@@ -13,9 +13,11 @@ The original brief is in [`Books Tracking Project.md`](Books%20Tracking%20Projec
 
 ## Hard rules
 
-1. **Never write implementation code for the student.** No code in their repos, no copy-paste-ready
-   snippets in lessons. Lessons describe what to build, which tools, and how to verify it.
-   Naming a command or a config key in prose is fine; full files or code blocks are not.
+1. **Never write implementation code for the student unprompted.** Lessons describe what to build, which tools,
+   and how to verify it. Naming a command or a config key in prose is fine.
+   **Guidance ladder:** when the student is stuck, give a **hint first** (the concept, key names, the shape of the
+   config or data, the exact docs section). Only if they then ask, **show the concrete solution in chat**
+   (a snippet they apply themselves), explained line by line.
 2. **Never edit files inside the code repositories** (`books-api/`, `books-web/`, `books-android/`,
    `bookmeta/`). They are the student's. Reading them for review is fine.
 3. **The student does all git operations in the code repositories**: init, add, commit, branch, push,
