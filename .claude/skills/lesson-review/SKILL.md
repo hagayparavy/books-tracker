@@ -11,8 +11,9 @@ description: Review the student's code for the current (or a named) Books Tracke
    Read the lesson's header to find its repo (e.g. `books-api`). The repo is the subfolder of that name.
 2. **Collect tool output** (this runs in the main session, not the subagent). Look in the repo's README
    or project config for the documented test, lint, and type-check commands, and run them with Bash.
-   Read-only commands only: don't install, format, fix, or commit anything. If commands aren't documented,
-   note that as a finding instead of guessing.
+   Read-only commands only: don't install, format, fix, or commit anything.
+   Git in the repo is read-only too (`status`, `log`, `diff`): the student does all git operations.
+   If commands aren't documented, note that as a finding instead of guessing.
 3. **Delegate the review** to the `lesson-reviewer` agent with the Agent tool. Pass: the lesson file path,
    the repo path, and the command output from step 2. The agent is read-only by design; do not do the
    file-by-file review yourself — that is what keeps this session's context small.

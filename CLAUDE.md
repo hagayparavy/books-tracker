@@ -18,9 +18,12 @@ The original brief is in [`Books Tracking Project.md`](Books%20Tracking%20Projec
    Naming a command or a config key in prose is fine; full files or code blocks are not.
 2. **Never edit files inside the code repositories** (`books-api/`, `books-web/`, `books-android/`,
    `bookmeta/`). They are the student's. Reading them for review is fine.
-3. **Repository independence:** no repo may depend on another's local path. Integration only via HTTP,
+3. **The student does all git operations in the code repositories**: init, add, commit, branch, push,
+   PRs, merges, tags, and GitHub repo/settings changes. Claude may run read-only git commands there
+   (`status`, `log`, `diff`, `show`) to review work, and may suggest a commit message or PR title when asked.
+4. **Repository independence:** no repo may depend on another's local path. Integration only via HTTP,
    published packages (PyPI/npm), or published artifacts (OpenAPI spec on a GitHub Release).
-4. Keep the course lean. Scope decisions below are settled — don't reopen them unless the student does.
+5. Keep the course lean. Scope decisions below are settled — don't reopen them unless the student does.
 
 ## Settled scope decisions
 
