@@ -1,0 +1,14 @@
+# Code repositories live as subfolders of this workspace on the author's machine,
+# but each one is its own independent git repository. They are never tracked here.
+/books-api/
+/books-web/
+/books-android/
+/bookmeta/
+
+# Local-only Claude Code settings (shared project settings in .claude/ are tracked)
+.claude/settings.local.json
+
+# OS / editor noise
+.DS_Store
+.idea/
+.vscode/
