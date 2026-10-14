@@ -6,9 +6,7 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 ## Current position
 
 - **Next lesson:** [M1.02 — TDD your first endpoint](lessons/m1-walking-skeleton/02-tdd-first-endpoint.md)
-- **Next step:** Student commits the post-review cleanup in books-api (uncommitted: stale tutor comments
-  stripped, smoke test asserts import only, `uv init` `main` + `[project.scripts]` removed, mypy hook
-  `types_or: [python, toml]`, ruff floor `>=0.17.0`). Then start M1.02.
+- **Next step:** Start M1.02 (read the lesson, make its decisions). M1.01 review fixes are committed and pushed.
 
 ## Lesson status
 
@@ -112,4 +110,4 @@ Small edits owed to later lessons, based on decisions made while working:
   (`Added:` / `Fixed:` + `was:`), cleaned up after the lesson review. Student prefers generators/official
   snippets over hand-written config. `/lesson-review`: complete with documented deviations; Claude applied
   the four review fixes. **M1.01 closed.**
-  **Next:** student commits the review fixes → M1.02.
+  **Next:** M1.02.
