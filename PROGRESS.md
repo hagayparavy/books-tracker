@@ -6,10 +6,11 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 ## Current position
 
 - **Next lesson:** [M1.01 — Repository bootstrap](lessons/m1-walking-skeleton/01-repo-bootstrap.md)
-- **Next step:** **Task 6: `just` runner** (start from `just --init`, then review together). Task 5 is committed
-  (`20661dc` ruff bump, `2d38f1f` pre-commit hooks) with **gitleaks commented out**: the student's call after the
-  Go source build hung. Secrets are covered by GitHub push protection (task 8) for now. Optional later: re-enable
-  via the `gitleaks-system` hook + the release binary. Remaining after task 6: tasks 7–9 + the toolchain ADR.
+- **Next step:** **Task 9: smoke test** + `just check` green (also add `"tests"` to mypy `files`), then the
+  toolchain ADR (`books-api/docs/adr/0001-python-toolchain.md`). Tasks 1–8 done: `just` runner (task 6),
+  README/LICENSE/.env.example (task 7, written by Claude on request), GitHub secret scanning + push protection +
+  private vulnerability reporting (task 8; PVR verified via API, secret scanning confirmed by the student).
+  mypy pre-commit hook was accidentally commented out with gitleaks in `2d38f1f`; restored by Claude.
 
 ## Lesson status
 
@@ -18,7 +19,7 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 | Lesson | Status | Evidence (PR / commit / tag) |
 |---|---|---|
 | M0 design: wireframes + Figma | ⬜ | |
-| M1.01 Repository bootstrap | 🟨 | tasks 1–5 (`b15c3e2`, `2d38f1f`; gitleaks deferred) |
+| M1.01 Repository bootstrap | 🟨 | tasks 1–8 (`2d38f1f` hooks, `319b132` just; gitleaks deferred) |
 | M1.02 TDD your first endpoint | ⬜ | |
 | M1.03 Configuration and DI | ⬜ | |
 | M1.04 CI from day one | ⬜ | |
