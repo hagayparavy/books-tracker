@@ -40,6 +40,8 @@ Course-level decisions (also in the ADRs):
 - 2026-10-08 — Rollout: write M1 fully → student reviews format → apply to M2–M6 in one pass, with small touch-ups later.
 - 2026-10-08 — Code repos live as subfolders of this workspace, gitignored here, each its own git repo.
 - 2026-10-08 — Guidance ladder: hint first; on request, show the concrete solution in chat. → CLAUDE.md rule 1
+- 2026-10-14 — Guidance ladder v2: if still stuck after a hint, Claude **offers** to do the step; on yes it edits the
+  repo with `Added:` / `Fixed:` + `was:` comments (lockfiles reported in chat). Git stays the student's. → CLAUDE.md rules 1–2
 - 2026-10-08 — Git ownership: student does all git ops in code repos; Claude handles git (commit + push) for this course-docs workspace.
 - 2026-10-08 — Git: personal identity (`hagayparavy`, noreply email) and personal SSH key apply automatically
   to this folder and every nested repo via `includeIf` in `~/.gitconfig`. Use **SSH remote URLs** for course repos.

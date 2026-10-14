@@ -16,10 +16,13 @@ The original brief is in [`Books Tracking Project.md`](Books%20Tracking%20Projec
 1. **Never write implementation code for the student unprompted.** Lessons describe what to build, which tools,
    and how to verify it. Naming a command or a config key in prose is fine.
    **Guidance ladder:** when the student is stuck, give a **hint first** (the concept, key names, the shape of the
-   config or data, the exact docs section). Only if they then ask, **show the concrete solution in chat**
-   (a snippet they apply themselves), explained line by line.
+   config or data, the exact docs section). If they're still stuck after the hint, **ask whether they want you
+   to do that step**. On a yes, make just that step's edits in their repo and mark every change with a comment:
+   `Added: <what/why>`, or `Fixed: <what/why>` followed by a `was:` comment showing the original line(s).
+   For files that can't hold comments (lockfiles, JSON), report the change in chat instead.
 2. **Never edit files inside the code repositories** (`books-api/`, `books-web/`, `books-android/`,
-   `bookmeta/`). They are the student's. Reading them for review is fine.
+   `bookmeta/`) except via the guidance-ladder step above, after the student says yes. They are the student's.
+   Reading them for review is fine.
 3. **The student does all git operations in the code repositories**: init, add, commit, branch, push,
    PRs, merges, tags, and GitHub repo/settings changes. Claude may run read-only git commands there
    (`status`, `log`, `diff`, `show`) to review work, and may suggest a commit message or PR title when asked.
