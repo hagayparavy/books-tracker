@@ -6,11 +6,13 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 ## Current position
 
 - **Next lesson:** [M1.01 — Repository bootstrap](lessons/m1-walking-skeleton/01-repo-bootstrap.md)
-- **Next step:** Commit task 4 (`pyproject.toml` Ruff + mypy config is **uncommitted** in books-api;
-  suggested msg `chore: configure ruff and mypy strict`), then **task 5: pre-commit hooks**. A full task-5
-  walkthrough was given at hint level (local `uv run mypy` hook with `pass_filenames: false`, autoupdate,
-  `pre-commit install` belongs in `just install`). Remaining after that: tasks 6–9 + the toolchain ADR.
-  Tasks 1–4 done. Format review continues while working through M1.
+- **Next step:** Finish **task 5** (pre-commit). `.pre-commit-config.yaml` is written and valid (hygiene, ruff,
+  gitleaks, local mypy hook) and `pre-commit install` is done; **uncommitted**, along with `uv.lock` (ruff bumped
+  0.16.10 → 0.17.0 to match the hook rev). **Blocker (do at home, needs network):** the `gitleaks` hook id compiles
+  gitleaks from source with Go and hung for hours. Fix: install the gitleaks v8.30.0 release binary to
+  `~/.local/bin`, switch the hook id to `gitleaks-system`, then `pre-commit run --all-files` + proof test.
+  Until then, commit with `SKIP=gitleaks git commit …`. Then commits `build: bump ruff to 0.17.0` and
+  `chore: add pre-commit hooks`. Remaining after that: tasks 6–9 + the toolchain ADR.
 
 ## Lesson status
 
@@ -19,7 +21,7 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 | Lesson | Status | Evidence (PR / commit / tag) |
 |---|---|---|
 | M0 design: wireframes + Figma | ⬜ | |
-| M1.01 Repository bootstrap | 🟨 | tasks 1–4; `16633e2` (dev tooling), task 4 uncommitted |
+| M1.01 Repository bootstrap | 🟨 | tasks 1–4 (`b15c3e2`); task 5 written, blocked on gitleaks install |
 | M1.02 TDD your first endpoint | ⬜ | |
 | M1.03 Configuration and DI | ⬜ | |
 | M1.04 CI from day one | ⬜ | |
@@ -73,6 +75,10 @@ Your implementation decisions (tooling, structure, …) go here with a link to t
 ## Owed touch-ups
 
 Small edits owed to later lessons, based on decisions made while working:
+
+- M1.01 task 5: use the **`gitleaks-system`** hook + install the gitleaks binary as a README prerequisite
+  (the default `gitleaks` id builds from source with Go and can hang). Warn that mirror hooks (ruff) pin their
+  own version: bump `uv.lock` together with `autoupdate`. Lead with `pre-commit sample-config` + official snippets.
 
 - M1.01 (and repo-creation steps in M3/M4/M5): say **use the SSH remote URL** up front. GitHub's quick-setup
   page defaults to HTTPS, which routes through `gh` (work account) and fails with 403.
