@@ -6,13 +6,10 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 ## Current position
 
 - **Next lesson:** [M1.01 — Repository bootstrap](lessons/m1-walking-skeleton/01-repo-bootstrap.md)
-- **Next step:** Finish **task 5** (pre-commit). `.pre-commit-config.yaml` is written and valid (hygiene, ruff,
-  gitleaks, local mypy hook) and `pre-commit install` is done; **uncommitted**, along with `uv.lock` (ruff bumped
-  0.16.10 → 0.17.0 to match the hook rev). **Blocker (do at home, needs network):** the `gitleaks` hook id compiles
-  gitleaks from source with Go and hung for hours. Fix: install the gitleaks v8.30.0 release binary to
-  `~/.local/bin`, switch the hook id to `gitleaks-system`, then `pre-commit run --all-files` + proof test.
-  Until then, commit with `SKIP=gitleaks git commit …`. Then commits `build: bump ruff to 0.17.0` and
-  `chore: add pre-commit hooks`. Remaining after that: tasks 6–9 + the toolchain ADR.
+- **Next step:** **Task 6: `just` runner** (start from `just --init`, then review together). Task 5 is committed
+  (`20661dc` ruff bump, `2d38f1f` pre-commit hooks) with **gitleaks commented out**: the student's call after the
+  Go source build hung. Secrets are covered by GitHub push protection (task 8) for now. Optional later: re-enable
+  via the `gitleaks-system` hook + the release binary. Remaining after task 6: tasks 7–9 + the toolchain ADR.
 
 ## Lesson status
 
@@ -21,7 +18,7 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 | Lesson | Status | Evidence (PR / commit / tag) |
 |---|---|---|
 | M0 design: wireframes + Figma | ⬜ | |
-| M1.01 Repository bootstrap | 🟨 | tasks 1–4 (`b15c3e2`); task 5 written, blocked on gitleaks install |
+| M1.01 Repository bootstrap | 🟨 | tasks 1–5 (`b15c3e2`, `2d38f1f`; gitleaks deferred) |
 | M1.02 TDD your first endpoint | ⬜ | |
 | M1.03 Configuration and DI | ⬜ | |
 | M1.04 CI from day one | ⬜ | |
@@ -50,6 +47,8 @@ Course-level decisions (also in the ADRs):
 
 Your implementation decisions (tooling, structure, …) go here with a link to the ADR in your repo:
 
+- 2026-10-14 — `books-api` pre-commit: gitleaks hook **disabled** (Go build hung, too slow). Secret protection relies on
+  GitHub push protection (task 8); revisit with `gitleaks-system` later.
 - 2026-10-08 — `books-api` mypy `files = ["src"]` for now; **add `"tests"` in task 9** once a test file exists
   (mypy errors on a missing or empty dir).
 - 2026-10-08 — `books-api` toolchain (M1.01): **uv** · **src layout** (`src/books_api/`) · **mypy strict** ·
