@@ -5,12 +5,10 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 
 ## Current position
 
-- **Next lesson:** [M1.01 — Repository bootstrap](lessons/m1-walking-skeleton/01-repo-bootstrap.md)
-- **Next step:** **Task 9: smoke test** + `just check` green (also add `"tests"` to mypy `files`), then the
-  toolchain ADR (`books-api/docs/adr/0001-python-toolchain.md`). Tasks 1–8 done: `just` runner (task 6),
-  README/LICENSE/.env.example (task 7, written by Claude on request), GitHub secret scanning + push protection +
-  private vulnerability reporting (task 8; PVR verified via API, secret scanning confirmed by the student).
-  mypy pre-commit hook was accidentally commented out with gitleaks in `2d38f1f`; restored by Claude.
+- **Next lesson:** [M1.02 — TDD your first endpoint](lessons/m1-walking-skeleton/02-tdd-first-endpoint.md)
+- **Next step:** Student commits the post-review cleanup in books-api (uncommitted: stale tutor comments
+  stripped, smoke test asserts import only, `uv init` `main` + `[project.scripts]` removed, mypy hook
+  `types_or: [python, toml]`, ruff floor `>=0.17.0`). Then start M1.02.
 
 ## Lesson status
 
@@ -19,7 +17,7 @@ Lesson definitions live in [`lessons/LESSONS-ORDER.md`](lessons/LESSONS-ORDER.md
 | Lesson | Status | Evidence (PR / commit / tag) |
 |---|---|---|
 | M0 design: wireframes + Figma | ⬜ | |
-| M1.01 Repository bootstrap | 🟨 | tasks 1–8 (`2d38f1f` hooks, `319b132` just; gitleaks deferred) |
+| M1.01 Repository bootstrap | ✅ | `38257b5` ADR; reviewed 2026-10-14 (gitleaks deviation accepted; 3 non-conventional commits) |
 | M1.02 TDD your first endpoint | ⬜ | |
 | M1.03 Configuration and DI | ⬜ | |
 | M1.04 CI from day one | ⬜ | |
@@ -50,6 +48,11 @@ Your implementation decisions (tooling, structure, …) go here with a link to t
 
 - 2026-10-14 — `books-api` pre-commit: gitleaks hook **disabled** (Go build hung, too slow). Secret protection relies on
   GitHub push protection (task 8); revisit with `gitleaks-system` later.
+- 2026-10-14 — Pre-commit budget: a commit must take **≤ 5 s**. Restoring gitleaks = `gitleaks-system` + release binary
+  (fits the budget); student decides when.
+- 2026-10-14 — Conventional Commits: **no automated enforcement** (no commit-msg hook / PR-title check). Claude flags
+  every miss instead.
+- 2026-10-14 — `books-api` has no console script; the app runs under uvicorn.
 - 2026-10-08 — `books-api` mypy `files = ["src"]` for now; **add `"tests"` in task 9** once a test file exists
   (mypy errors on a missing or empty dir).
 - 2026-10-08 — `books-api` toolchain (M1.01): **uv** · **src layout** (`src/books_api/`) · **mypy strict** ·
@@ -76,6 +79,10 @@ Your implementation decisions (tooling, structure, …) go here with a link to t
 
 Small edits owed to later lessons, based on decisions made while working:
 
+- M1.01 task 9: smoke test should assert only that the package imports (not the `uv init` `main` placeholder);
+  tell students to delete `main` + `[project.scripts]`. Note pytest exit code 5 = no tests collected.
+- M1.01 task 5: local mypy hook should use `types_or: [python, toml]` so config-only commits run it.
+
 - M1.01 task 5: use the **`gitleaks-system`** hook + install the gitleaks binary as a README prerequisite
   (the default `gitleaks` id builds from source with Go and can hang). Warn that mirror hooks (ruff) pin their
   own version: bump `uv.lock` together with `autoupdate`. Lead with `pre-commit sample-config` + official snippets.
@@ -100,3 +107,9 @@ Small edits owed to later lessons, based on decisions made while working:
   toolchain decisions together. Student did tasks 1–4 (repo, uv init, gitignore, dev deps, Ruff/mypy config;
   Claude fixed `per-file-ignores` as a one-time exception).
   **Next:** commit task 4 → task 5 (pre-commit).
+- **2026-10-14** — Finished M1.01 tasks 4–9 + ADR (in-flight session). gitleaks disabled after the Go build hung;
+  `just` kept after the student questioned it. New ladder rule: Claude offers to do a step and annotates edits
+  (`Added:` / `Fixed:` + `was:`), cleaned up after the lesson review. Student prefers generators/official
+  snippets over hand-written config. `/lesson-review`: complete with documented deviations; Claude applied
+  the four review fixes. **M1.01 closed.**
+  **Next:** student commits the review fixes → M1.02.

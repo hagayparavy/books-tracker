@@ -20,6 +20,8 @@ The original brief is in [`Books Tracking Project.md`](Books%20Tracking%20Projec
    to do that step**. On a yes, make just that step's edits in their repo and mark every change with a comment:
    `Added: <what/why>`, or `Fixed: <what/why>` followed by a `was:` comment showing the original line(s).
    For files that can't hold comments (lockfiles, JSON), report the change in chat instead.
+   Markers are for the student's review: once the lesson passes `/lesson-review`, strip them, keeping only
+   comments that explain *why*.
 2. **Never edit files inside the code repositories** (`books-api/`, `books-web/`, `books-android/`,
    `bookmeta/`) except via the guidance-ladder step above, after the student says yes. They are the student's.
    Reading them for review is fine.
